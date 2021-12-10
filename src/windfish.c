@@ -7,7 +7,7 @@ unsigned int initState1() {
 }
 
 unsigned int updateState1(float deltatime) {
-  printf("state 1 updated %f\n", deltatime);
+  printf("state 1 updated delta: %f\n", deltatime);
   return 0;
 }
 
@@ -30,17 +30,23 @@ int main() {
   state1.destroy = destroyState1;
   state1.update = updateState1;
   STATEMANAGER_push(&engine.statemanager, &state1);
+  TIMER_step(&engine.timer);
 
   // game loop
   int quit = 0;
   SDL_Event e;
   while (!engine.quit) {
+    TIMER_step(&engine.timer);
+
     while (SDL_PollEvent(&e)) {
       if (e.type == SDL_QUIT)
         engine.quit = 1;
     }
 
-    STATEMANAGER_update(&engine.statemanager, 10.0f);
+    STATEMANAGER_update(&engine.statemanager, engine.timer.dt);
+
+    printf("fps: %d ", engine.timer.fps);
+    TIMER_sleep(0.01);
   }
 
   ENGINE_free(&engine);

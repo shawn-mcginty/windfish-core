@@ -3,6 +3,7 @@
 
 #include "graphics.h"
 #include "statemanager.h"
+#include "timer.h"
 
 struct EngineOptions {
   char *title;
@@ -14,6 +15,7 @@ typedef struct {
   char quit;
   Graphics graphics;
   StateManager statemanager;
+  Timer timer;
 } Engine;
 
 int ENGINE_init(Engine *engine, struct EngineOptions *options);

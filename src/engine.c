@@ -17,6 +17,7 @@ int ENGINE_init(Engine *engine, struct EngineOptions *options) {
 
   GRAPHICS_init(&engine->graphics);
   STATEMANAGER_init(&engine->statemanager);
+  TIMER_init(&engine->timer);
 
   engine->quit = 0;
   return 0;

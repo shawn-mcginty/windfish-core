@@ -34,6 +34,7 @@ set(WINDFISH_SRC
   src/engine.c
   src/graphics.c
   src/statemanager.c
+  src/timer.c
 )
 
 message("SDL2_LIBRARY: ${SDL2_LIBRARY}")
