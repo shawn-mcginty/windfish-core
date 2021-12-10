@@ -43,7 +43,7 @@ message("SDL2_INCLUDE_DIR: ${SDL2_INCLUDE_DIR}")
 add_library(${WINDFISH_LIB_NAME} SHARED ${WINDFISH_SRC})
 target_link_libraries(${WINDFISH_LIB_NAME} ${WINDFISH_LINK_LIBRARIES})
 
-add_executable(${WINDFISH_EXE_NAME} src/main.c)
+add_executable(${WINDFISH_EXE_NAME} src/windfish.c)
 target_link_libraries(${WINDFISH_EXE_NAME} ${WINDFISH_LIB_NAME})
 
 # tests
